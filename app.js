@@ -102,7 +102,6 @@ app.get('/api/google/books/', function (req, res) {
 });
 
 app.get('/api/books/:_id', (req, res) => {
-	console.log("meow");
 	Book.getBookById(req.params._id, (err, book) => {
 		console.log(book);
 		if(err) {
@@ -142,5 +141,16 @@ app.delete('/api/books/:_id', (req, res) => {
 		res.send(200);
 	});
 });
+
+app.get('/api/google/volume/', function (req, res) {
+    const volumeId = req.query.id;
+    booksSearch.lookup(volumeId, function (error, results) {
+        if (error) {
+            console.log(error);
+        }
+        res.send(results);
+    });
+});
+
 
 app.listen(3010);

@@ -54,7 +54,6 @@ module.exports.getBooks = (callback, limit) => {
 // Get Book
 module.exports.getBookById = (id, callback) => {
 	// Book.findById(id, callback);
-	console.log(id);
     Book.findOne({ googleBookId : id }, callback);
 }
 
