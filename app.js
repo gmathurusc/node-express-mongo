@@ -4,7 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const booksSearch = require('google-books-search');
-const path = require('path');
 const winston = require('winston');
 const expressWinston = require('express-winston');
 const keys = require('./config/keys');
@@ -130,6 +129,16 @@ app.delete('/api/books/:_id', (req, res) => {
 		}
 		res.send(200);
 	});
+});
+
+app.get('/api/google/volume/', (req, res) => {
+    const volumeId = req.query.id;
+    booksSearch.lookup(volumeId, (error, results) => {
+        if (error) {
+            console.log(error);
+        }
+        res.send(results);
+    });
 });
 
 app.listen(3010);

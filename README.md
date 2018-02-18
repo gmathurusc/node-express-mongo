@@ -2,7 +2,6 @@
 ```
 npm install
 ```
-* Install MongoDB - https://docs.mongodb.com/manual/administration/install-community/
 
 * Import Postman Collecion - `BookStore.postman_collection.json`
 ## Serving/Building the project
@@ -10,10 +9,5 @@ npm install
 ```
 nodemon app
 ```
-## Run MongoDB in CLI
-```
-mongo
-```
-
-## Import DB
-``` mongorestore -d bookstore <directory_backup>```
+## MLab
+* Sign up for MLab and configure the mongo URL in config/dev.js
